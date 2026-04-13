@@ -6,6 +6,8 @@ from .sandwiches import Sandwich
 
 class OrderDetailBase(BaseModel):
     amount: int
+    order_status: Optional[str] = None
+    total_price: Optional[float] = None
 
 
 class OrderDetailCreate(OrderDetailBase):
