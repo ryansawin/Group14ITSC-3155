@@ -1,6 +1,5 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
 from sqlalchemy.orm import relationship
-from datetime import datetime
 from ..dependencies.database import Base
 
 class OrderDetail(Base):
@@ -12,4 +11,3 @@ class OrderDetail(Base):
     amount = Column(Integer, index=True, nullable=False)
 
     sandwich = relationship("Sandwich", back_populates="order_details")
-    order = relationship("Order", back_populates="order_details")

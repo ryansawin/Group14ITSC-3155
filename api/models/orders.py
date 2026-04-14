@@ -13,7 +13,3 @@ class Order(Base):
     description = Column(String(300))
 
     order_details = relationship("OrderDetail", back_populates="order")
-
-    customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
-
-    customer = relationship("Customer", back_populates="orders")
