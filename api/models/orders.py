@@ -11,6 +11,7 @@ class Order(Base):
     customer_name = Column(String(100))
     order_date = Column(DATETIME, nullable=False, default=datetime.now)
     description = Column(String(300))
+    customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
 
     customer = relationship("Customer", back_populates="orders")
     order_details = relationship("OrderDetail", back_populates="order")
