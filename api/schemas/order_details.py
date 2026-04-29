@@ -1,6 +1,5 @@
-from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from .sandwiches import Sandwich
 
 
@@ -12,6 +11,7 @@ class OrderDetailCreate(OrderDetailBase):
     order_id: int
     sandwich_id: int
 
+
 class OrderDetailUpdate(BaseModel):
     order_id: Optional[int] = None
     sandwich_id: Optional[int] = None
@@ -21,7 +21,6 @@ class OrderDetailUpdate(BaseModel):
 class OrderDetail(OrderDetailBase):
     id: int
     order_id: int
-    sandwich: Sandwich = None
+    sandwich: Optional[Sandwich] = None
 
-    class ConfigDict:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
