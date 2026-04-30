@@ -14,3 +14,4 @@ class Recipe(Base):
 
     sandwich = relationship("Sandwich", back_populates="recipes")
     resource = relationship("Resource", back_populates="recipes")
+    reviews = relationship("Review", back_populates="recipe")

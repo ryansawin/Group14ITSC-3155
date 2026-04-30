@@ -14,3 +14,4 @@ class Customer(Base):
     card_number = Column(String(20), nullable=False)
 
     orders = relationship("Order", back_populates="customer")
+    reviews = relationship("Review", back_populates="customer")
